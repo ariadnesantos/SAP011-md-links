@@ -8,7 +8,11 @@ const resultado = soma(1,4);
 
 console.log(chalk.magenta(resultado));
 
-lerArquivo('./test/files/newFile.md')
+const caminhoArquivo = process.argv[2];
+lerArquivo(caminhoArquivo)
 .then((conteudoArquivo) => {
     console.log(chalk.bgCyan(conteudoArquivo))
 });
+
+const inputs = process.argv
+console.log(inputs);
