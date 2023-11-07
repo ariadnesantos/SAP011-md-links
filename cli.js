@@ -9,7 +9,7 @@ mdLinks(caminhoArquivo)
 .then((conteudoArquivo) => {
     //console.log(chalk.bgCyan(conteudoArquivo))
     for(const link of conteudoArquivo){   //O loop for...of itera pelos objetos de link no array links
-        console.log((chalk.cyan(link.text) + ' URL: ' + link.url));
+        console.log((chalk.bgCyan.black(link.text) + ' URL: ' + chalk.cyan(link.url)));
     }
 });
 

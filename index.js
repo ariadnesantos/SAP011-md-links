@@ -5,7 +5,7 @@ function mdLinks(caminhoDoArquivo){
     fs.readFile(caminhoDoArquivo, 'utf8', (err, data) => {
       if(err) reject(err);
 
-      const pattern = /\[([^\]]+)\]\(([^)]+)\)/g;
+      const pattern = /\[([^\]]+)\]\((https?[^)]+)\)/g; //https?: Corresponde a "http" ou "https", onde o ? torna o "s" opcional.
 
 //Encontrar todos os links na string markdown
 const links = []; //cria um array para armazenar os links encontrados
