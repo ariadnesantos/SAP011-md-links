@@ -1,4 +1,4 @@
-const mdLinks = require('../');
+const mdLinks = require('../index.js');
 const { soma } = require('../index');
 
 test('Soma de 2 e 3 deve retornar 5', () => {
