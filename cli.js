@@ -1,17 +1,28 @@
 #! /usr/bin/env node
 //Manter console.log na cli.js
 
-const { mdLinks } = require('./index.js');
+const { mdLinks, validateLinks } = require('./index.js');
 const chalk = require('chalk');
 
 const caminhoArquivo = process.argv[2];
+
 mdLinks(caminhoArquivo)
 .then((conteudoArquivo) => {
-    //console.log(chalk.bgCyan(conteudoArquivo))
-    for(const link of conteudoArquivo){   //O loop for...of itera pelos objetos de link no array links
-        console.log((chalk.bgCyan.white.bold(link.text) + chalk.white.bold(' URL: ') + chalk.cyan(link.url)));
+    return validateLinks(conteudoArquivo).then(() => {
+        for(const link of conteudoArquivo) {
+            console.log(chalk.bgCyan.white.bold(link.text) +
+            chalk.white.bold(' URL: ') +
+            chalk.cyan(link.url) +
+            chalk.white.bold(' Status: ') +
+            (link.ok === 'ok' ? chalk.green(link.ok) : chalk.red(link.ok))
+            );
     }
+    });
+})
+.catch((err) => {
+    console.error(chalk.red('Erro', err));
 });
-//#D307F4
-const inputs = process.argv[2] //O segundo argumento do array de inputs fornece o caminho do arquivo
-console.log(inputs);            
+
+
+
+

@@ -10,7 +10,8 @@
     "commit": "a5360f78b634be4f14eaea996ee4c7afc85a2f48"
   },
   "dependencies": {
-    "chalk": "^4.1.2"
+    "chalk": "^4.1.2",
+    "node-fetch": "^3.3.2"
   },
   "devDependencies": {
     "eslint": "^8.52.0",
@@ -18,6 +19,6 @@
     "jest": "^29.7.0"
   },
   "bin": {
-  "md-links": "cli.js"
+    "md-links": "cli.js"
   }
 }
